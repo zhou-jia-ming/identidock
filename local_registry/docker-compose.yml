@@ -12,9 +12,3 @@ registry:
     REGISTRY_HTTP_ADDR: 0.0.0.0:5001
     REGISTRY_HTTP_TLS_CERTIFICATE: /certs/domain.crt
     REGISTRY_HTTP_TLS_KEY: /certs/domain.key
-  http:
-    addr: zhoujiaming:5000
-    secret: pn1423iu9jvnapifdjpqi34j9ghfn-0932nvcav
-    tls:
-      certificate: /certs/domain.crt
-      key: /certs/domain.key
