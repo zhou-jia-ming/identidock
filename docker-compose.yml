@@ -1,0 +1,32 @@
+# 使用docker-compose完成一些自动化工作
+
+# compose在这里的术语是服务
+
+# 相当于 docker build -t identidock . 里面的identidock这个容器名
+
+identidock:
+  #  相当于 docker run --restart always
+  restart: "no"
+  #  相当于 docker build .
+  build: .
+  #  相当于 docker run -p 5000:5000
+  ports:
+     - "5000:5000"
+  #  相当于 docker run -e "ENV:DEV"
+  #  可以为生产环境单独创建一个 ENV:PROD的版本。执行docker-compose带上-f参数，才能创建一个新的container。
+  environment:
+    ENV: DEV
+  #  相当于 docker run -v ($PWD)/app:/app
+  volumes:
+    - ./app:/app
+  # 相当于 docker run --link dnmonster:dnmonster
+  links:
+    - dnmonster
+    - redis
+
+#  相当于docker run -d  --name dnmonster amouat/dnmonster:1.0
+dnmonster:
+  image: amouat/dnmonster:1.0
+
+redis:
+  image: redis:3.0
