@@ -2,7 +2,7 @@
 
 registry:
   image: registry:2
-  restart: "always"
+  restart: "no"
   ports:
     - "5001:5001"
   volumes:
