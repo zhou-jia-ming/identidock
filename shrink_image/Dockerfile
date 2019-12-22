@@ -15,3 +15,9 @@ RUN rm /bigfile
 # docker export $(docker ps -lq) | docker import -
 # xxxxxxxxxxxxxxx
 # docker tag xxxxxxxxxxx identidock:import
+
+
+# 删除镜像
+# docker rmi
+# 查看 镜像的子镜像
+# docker image inspect --format='{{.RepoTags}} {{.Id}} {{.Parent}}' $(docker image ls -q --filter since=xxxxx)
