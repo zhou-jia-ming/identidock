@@ -2,13 +2,20 @@
 
 registry:
   image: registry:2
-  restart: "no"
+  restart: "always"
   ports:
     - "5001:5001"
   volumes:
     - ./registry_certs:/certs
+    - ./mnt/registry:/var/lib/registry
   environment:
     # 如果默认设置为443，ports也要改为443
     REGISTRY_HTTP_ADDR: 0.0.0.0:5001
     REGISTRY_HTTP_TLS_CERTIFICATE: /certs/domain.crt
     REGISTRY_HTTP_TLS_KEY: /certs/domain.key
+
+
+# 本地使用这个服务可以用
+# docker image tag ubuntu localhost:5001/myfirstimage
+# docker push localhost:5001/myfirstimage
+# docker pull localhost:5000/myfirstimage
