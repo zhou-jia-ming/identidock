@@ -8,8 +8,8 @@ TimeoutStartSec=0
 Restart=always
 ExecStartPre=-/usr/bin/docker stop dnmonster
 ExecStartPre=-/usr/bin/docker rm dnmonster
-ExecStartPre=/usr/bin/docker pull dnmonster
-ExecStartPre=/usr/bin/docker run --rm --name dnmonster dnmonster
+ExecStartPre=/usr/bin/docker pull amouat/dnmonster:1.0
+ExecStart=/usr/bin/docker run --rm --name dnmonster amouat/dnmonster:1.0
 
 [Install]
 WantedBy=multi-user.target

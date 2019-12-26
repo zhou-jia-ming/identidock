@@ -11,13 +11,13 @@ TimeoutStartSec=0
 Restart=always
 ExecStartPre=-/usr/bin/docker stop proxy
 ExecStartPre=-/usr/bin/docker rm proxy
-ExecStartPre=/usr/bin/docker pull proxy
-ExecStartPre=/usr/bin/docker run --rm --name proxy \
-    --link identidock:identidock
-    -p 80:80
+ExecStartPre=/usr/bin/docker pull jiaming0docker/proxy:0.1
+ExecStart=/usr/bin/docker run --rm --name proxy \
+    --link identidock:identidock \
+    -p 80:80 \
     -e NGINX_HOST=zhoujiaming \
     -e NGINX_PROXY=http://identidock:9090 \
-    jiaming0docker/proxy
+    jiaming0docker/proxy:0.1
 
 [Install]
 WantedBy=multi-user.target

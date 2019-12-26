@@ -9,7 +9,7 @@ Restart=always
 ExecStartPre=-/usr/bin/docker stop redis
 ExecStartPre=-/usr/bin/docker rm redis
 ExecStartPre=/usr/bin/docker pull redis
-ExecStartPre=/usr/bin/docker run --rm --name redis redis
+ExecStart=/usr/bin/docker run --rm --name redis redis
 
 [Install]
 WantedBy=multi-user.target
