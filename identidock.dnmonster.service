@@ -1,0 +1,16 @@
+[Unit]
+Description=Dnmonster Container for Identidock
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=-/usr/bin/docker stop dnmonster
+ExecStartPre=-/usr/bin/docker rm dnmonster
+ExecStartPre=/usr/bin/docker pull dnmonster
+ExecStartPre=/usr/bin/docker run --rm --name dnmonster dnmonster
+
+[Install]
+WantedBy=multi-user.target
+
