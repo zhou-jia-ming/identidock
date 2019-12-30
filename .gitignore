@@ -1,3 +1,4 @@
 registry_certs/
 *.pyc
 .DS_Store
+.idea/
