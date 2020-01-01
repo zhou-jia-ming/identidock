@@ -1,0 +1,9 @@
+# move this file to /etc/logrotate.d/
+/var/lib/docker/containers/*/*.log {
+  daily
+  rotate 3
+  compress
+  delaycompress
+  missingok
+  copytruncate
+}
