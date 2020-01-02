@@ -9,7 +9,7 @@ proxy:
     - NGINX_PROXY=http://identidock:9090
 
 identidock:
-  build: .
+  build: ..
   links:
     - dnmonster
     - redis
