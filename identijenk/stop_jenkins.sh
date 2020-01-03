@@ -1,1 +1,1 @@
-docker-compose pause
+docker-compose stop 
