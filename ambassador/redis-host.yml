@@ -1,0 +1,10 @@
+
+real-redis-ambassador:
+  image: amouat/ambassador
+  links:
+    - real-redis:real-redis
+  ports:
+    - "6379:6379"
+
+real-redis:
+  image: redis:3.0

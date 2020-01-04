@@ -1,0 +1,20 @@
+redis_ambassador:
+  expose:
+    - "6379"
+  environment:
+    - REDIS_PORT_6379_TCP=tcp://placeholder:6379
+  image: amouat/ambassador
+
+
+identidock:
+  build: ..
+  ports:
+    - "80:9090"
+  links:
+    - dnmonster
+    - redis_ambassador:redis
+  environment:
+    ENV: PROD
+
+dnmonster:
+  image: amouat/dnmonster:1.0
