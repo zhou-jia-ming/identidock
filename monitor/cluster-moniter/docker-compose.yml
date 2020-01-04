@@ -1,0 +1,19 @@
+prometheus:
+  ports:
+    - "9090:9090"
+  volumes:
+    - ./prometheus.conf:/etc/prometheus/prometheus.yml
+  links:
+    - cadvisor:cadvisor
+  image:
+    prom/prometheus
+
+
+cadvisor:
+  volumes:
+    - /:/rootfs:ro
+    - /var/run:/var/run:rw
+    - /var/lib/docker/:/var/lib/docker:ro
+  ports:
+    - "8080:8080"
+  image: google/cadvisor:latest
