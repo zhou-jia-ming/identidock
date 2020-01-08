@@ -14,4 +14,9 @@ etcd-2:
   -initial-cluster-token etcd-cluster-1
   -initial-cluster etcd-1=http://placeholderA:2380,etcd-2=http://placeholderB:2380  -initial-cluster-state new"
 
+redis:
+  image: redis:3.0
+  ports:
+  - "6379:6379"
+  container_name: "redis"
 
