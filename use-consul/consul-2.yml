@@ -1,0 +1,14 @@
+consul-2:
+  container_name: consul
+  hostname: consul-2
+  image: gliderlabs/consul
+  ports:
+    - "8300:8300"    # use 8300 for server RPC address (TCP only)
+    - "8301:8301"    # use 8301 for LAN Serf (gossip between cluster)
+    - "8301:8301/udp"
+    - "8302:8302"    # use 8302 for Wan Serf:  (TCP and UDP)
+    - "8302:8302/udp"
+    - "8400:8400"    #
+    - "8500:8500"    # use 8500  HTTP API (TCP only)
+    - "8600:53/udp"  # use 8600  DNS (TCP & UDP)
+  command: "agent -data-dir /data -server -client 0.0.0.0 -advertise placeholderB -join placeholderA"
