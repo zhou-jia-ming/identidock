@@ -5,4 +5,5 @@ HOSTA=$(docker-machine ip etcd-1)
 curl -s http://$HOSTA:2379/v2/keys/service_name -XPUT -d value="service_address" |jq '.'
 curl -s http://$HOSTB:2379/v2/keys/service_name | jq '.'
 # test with docker
+eval $(docker-machine env --unset)
 docker run binocarlos/etcdctl -C ${HOSTB}:2379 get service_name
