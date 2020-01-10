@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# start docker machine
+docker-machine start consul-1 consul-2
+
 HOSTA=$(docker-machine ip consul-1)
 HOSTB=$(docker-machine ip consul-2)
 
