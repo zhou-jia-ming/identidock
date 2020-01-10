@@ -10,5 +10,12 @@ consul-2:
     - "8302:8302/udp"
     - "8400:8400"    #
     - "8500:8500"    # use 8500  HTTP API (TCP only)
-    - "8600:53/udp"  # use 8600  DNS (TCP & UDP)
-  command: "agent -data-dir /data -server -client 0.0.0.0 -advertise placeholderB -join placeholderA"
+    - "172.17.0.1:53:8600/udp" # this magic IP is from the docker0 bridge.
+      # you can use ifconfig command to find it after ssh to docker machine
+  command: "agent -data-dir /data -server -client 0.0.0.0 -advertise placeholderB  -join placeholderA"
+
+redis:
+  image: redis:3.0
+  container_name: redis
+  ports:
+    - "6379:6379"
