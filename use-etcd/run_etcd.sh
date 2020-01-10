@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# start docker machine
+docker-machine start etcd-1 etcd2
 # get vm ip address
 HOSTA=$(docker-machine ip etcd-1)
 HOSTB=$(docker-machine ip etcd-2)
