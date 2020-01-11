@@ -15,9 +15,12 @@ consul-1:
   command: "agent -data-dir /data -server -client 0.0.0.0 -advertise placeholderA -bootstrap-expect 2"
 
 dnmonster:
+  container_name: dnmonster
+  ports:
+    - "8080:8080"
   image: amouat/dnmonster:1.0
 
 identidock:
-  image: jiaming0docker/identidock:0.1
+  image: jiaming0docker/identidock:2.0
   ports:
     - "80:9090"
